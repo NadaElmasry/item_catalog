@@ -1,0 +1,22 @@
+{% extends "main.html" %} {% block content %} {%include "header.html"%}
+
+<div class="row">
+	<div class="category-char col-12">
+		<h2 class="page-header"> 
+				<span>{{item.name}}</span>
+				<span class="bar-space"></span>
+		</h2>
+		<div class="char-description-div">
+			<p class="char-description">{{item.description}}</p>
+		</div>
+		<div >
+			<a href="{{url_for('showItems', catalog_id = item.catalog_id)}}" >
+					<button class="btn btn-default" >
+							<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Back
+					</button>
+			</a> 
+					</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+	<div class="row top-menu">
+		<div class="col-md-10"></div>
+		<div class="col-md-2 text-right">
+					</div>
+	</div>
+	<div class="row divider blue">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner main">
+		<div class="col-md-1"></div>
+		<div class="col-md-11 padding-none">
+			<h1>Space</h1>
+		</div>
+	</div>
+	
+	<div class="row padding-top padding-bottom">
+		<div class="col-md-1"></div>
+		<div class="col-md-10 padding-none">
+			<a href="{{url_for('newCatalog')}}">
+				<button class="btn btn-default" >
+					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Catalog
+				</button>
+			</a>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+	{% for catalog in catalogs %}
+		<a href = "{{url_for('showItems', catalog_id = catalog.id)}}">
+			<div class="row">
+				<div class="col-md-1"></div>
+					<div class="col-md-10 catalog-list">
+						<h3>{{catalog.name}}</h3>
+					</div>
+				<div class="col-md-1"></div>
+			</div>
+		</a>
+	{% endfor %}
+{% endblock %}
